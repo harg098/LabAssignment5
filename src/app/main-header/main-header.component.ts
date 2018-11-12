@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'main-header',
   templateUrl: './main-header.component.html',
@@ -10,11 +10,14 @@ export class MainHeaderComponent implements OnInit {
   private firstName: string;
   private lastName: string;
 
-  constructor() {
+  constructor(private router: Router) {
     this.firstName = 'Harinder';
     this.lastName = 'Gill';
   }
 
+  goToPage(path: string) {
+    this.router.navigate([path]);
+  }
 
   showGreeting() {
     const banner = document.getElementById('banner');
